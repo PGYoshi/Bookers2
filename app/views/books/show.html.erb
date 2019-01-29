@@ -50,11 +50,11 @@
 				<% if @book_show.user_id == current_user.id %>
 
 <td>
-					<%= link_to "Edit", edit_book_path(@book_show.id), class: "btn btn-success edit_book_#{@book.id}" %>
+					<%= link_to "Edit", edit_book_path(@book_show.id), class: "btn btn-success edit_book_#{@book_show.id}" %>
 
 				</td>
 				<td>
-					<%= link_to 'Destroy', book_path(@book_show.id),  method: :delete, data: {confirm: "本当に削除しますか？？"}, class: "btn btn-danger destroy_book_#{@book.id}" %>
+					<%= link_to 'Destroy', book_path(@book_show.id),  method: :delete, data: {confirm: "本当に削除しますか？？"}, class: "btn btn-danger destroy_book_#{@book_show.id}" %>
 
 				</td>
 				<% end %>
