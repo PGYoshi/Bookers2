@@ -1,0 +1,69 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
+<% if @user.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+  	<h2><%= pluralize(@book.errors.count,"error") %> prohibited this obj from being saved:
+</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<div class="body">
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-3">
+		<%= render 'users/list', user: @user %>
+		<%= render 'books/new_book', book: @book %>
+		</div>
+
+		<div class="col-lg-9">
+		<h2>Book detail </h2>
+		<table class="table table-hover table-inverse">
+	<thead>
+		<tr>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+
+	</thead>
+		<tbody>
+			<tr>
+				<td>
+					<%= attachment_image_tag @book_show.user, :image, :fill, 50, 50, fallback: 'no-image.jpg', :size => '50x50' %>
+				</td>
+
+				<td><%= @book_show.title %></td>
+
+				<td><%= @book_show.opinion %></td>
+
+				<% if @book_show.user_id == current_user.id %>
+
+<td>
+					<%= link_to "Edit", edit_book_path(@book_show.id), class: "btn btn-success edit_book_#{@book.id}" %>
+
+				</td>
+				<td>
+					<%= link_to 'Destroy', book_path(@book_show.id),  method: :delete, data: {confirm: "本当に削除しますか？？"}, class: "btn btn-danger destroy_book_#{@book.id}" %>
+
+				</td>
+				<% end %>
+			</tr>
+		</tbody>
+		</table>
+		</div>
+	</div>
+</div>
+</div>
+
+

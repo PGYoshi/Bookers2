@@ -1,0 +1,10 @@
+<h2>User info</h2>
+ <%= attachment_image_tag user, :image, :fill, 50, 50, fallback: 'no-image.jpg', :size => '50x50' %>
+<p>name</p>
+	<%= user.name %>
+
+	<p>introduction</p>
+	<%= user.introduction %>
+
+<%= link_to "edit", edit_user_path(user.id), class:"edit_book_#{user.id}" %>
+
