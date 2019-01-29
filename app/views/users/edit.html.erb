@@ -12,13 +12,13 @@
 
 <%= form_for(@user) do |f| %>
 	<p>Name</p>
-	<%= f.text_field :name %>
+	<%= f.text_field :name, class:"name" %>
 
 	<p>Image</p>
-	<%= f.attachment_field :image %>
+	<%= f.attachment_field :image, class:"user_image" %>
 
 	<p>introduction</p>
-	<%= f.text_area :introduction %>
+	<%= f.text_area :introduction, class:"introduction" %>
 
 	<br>
 	<%= f.submit "Update User" %>
