@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_destroy_user_session_path(resorces)
-  	root_path
+  	root_pathu
   end
 
   protected
@@ -17,3 +17,4 @@ class ApplicationController < ActionController::Base
 
   end
 end
+

@@ -11,10 +11,10 @@ class BooksController < ApplicationController
       end
     end
 
-
 	def new
 		@book = Book.new
 	end
+	
 
 	def create
 		 @book = Book.new(book_params)
@@ -26,7 +26,6 @@ class BooksController < ApplicationController
     	 	flash[:notice] = "error"
 
     		@books = Book.all
-    		@book = Book.new
 			@user = User.find(current_user.id)
     		render 'index'
     	end
